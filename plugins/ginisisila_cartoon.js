@@ -64,8 +64,6 @@ cmd({
 },
 async (conn, m, mek, { from, q, reply, prefix, isDev }) => {
 try{
-	if (!isDev) return await reply('*this command only use premium members* 👨‍💻')
-	//if (!isGroup) return reply('🚫 *This is Group command*')
         if(!q) return await reply('*please give me text !..*')
 	const url = `https://ginisisilacartoon.net/search.php?q=${q}`
      const response = await axios.get(url);
