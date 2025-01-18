@@ -66,7 +66,7 @@ reply(`\n⬇️  *CK CineMAX GDRIVE DOWNLOADER*  ⬇️
 *🕹️ File type:* ${res.mimetype}
 
 > 👨🏻‍💻 ᴍᴀᴅᴇ ʙʏ *ᴄʜᴇᴛʜᴍɪɴᴀ ᴋᴀᴠɪꜱʜᴀɴ*`)		
-conn.sendMessage(jid, { document: { url: res.downloadUrl }, fileName: "🎬CK CineMAX🎬\n"+name, mimetype: res.mimetype , caption : "\n*🍀"+name+"*\n\n> 👨🏻‍💻*ᴄʜᴇᴛʜᴍɪɴᴀ ᴋᴀᴠɪꜱʜᴀɴ*"})
+conn.sendMessage(jid, { document: { url: res.downloadUrl }, fileName: "🎬CK CineMAX🎬\n"+name, mimetype: res.mimetype , caption : "\n*🍀 "+name+"*\n\n> 👨🏻‍💻 *ᴄʜᴇᴛʜᴍɪɴᴀ ᴋᴀᴠɪꜱʜᴀɴ*"})
 } catch (e) {
 reply('*Error..! Your Url is Private. Please Public It*')
 l(e)
