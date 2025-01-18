@@ -59,14 +59,14 @@ try{
   var [jid,link,name] = q.split(",");
  let res = await fg.GDriveDl(link)
   var name = name ? `${name.replace(/enter/g,'\n').replace(/oname/g,res.fileName)}` : res.fileName
-reply(`\n⬇️  *TC TEAM GDRIVE DOWNLOADER*  ⬇️
+reply(`\n⬇️  *CK CineMAX GDRIVE DOWNLOADER*  ⬇️
 
-*📃 File name:*  ${"🎬 DARKALPHAXTEAM 🎬\n"+name}
+*📃 File name:*  ${"🎬 CK CineMAX 🎬\n"+name}
 *💈 File Size:* ${res.fileSize}
 *🕹️ File type:* ${res.mimetype}
 
-*ᴛᴄ ᴛᴇᴀᴍ ᴍᴏᴠɪᴇᴅʟ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`)		
-conn.sendMessage(jid, { document: { url: res.downloadUrl }, fileName: "🎬 ᴛᴄ ᴍᴏᴠɪᴇ ᴅʟ 🎬\n"+name, mimetype: res.mimetype , caption : "\n"+name+"\n\n> *𝗧𝗘𝗖𝗛𝗡𝗜𝗖𝗔𝗟 𝗖𝗬𝗕𝗘𝗥𝗦*"})
+> 👨🏻‍💻 ᴍᴀᴅᴇ ʙʏ *ᴄʜᴇᴛʜᴍɪɴᴀ ᴋᴀᴠɪꜱʜᴀɴ*`)		
+conn.sendMessage(jid, { document: { url: res.downloadUrl }, fileName: "🎬CK CineMAX🎬\n"+name, mimetype: res.mimetype , caption : "\n*🍀"+name+"*\n\n> 👨🏻‍💻*ᴄʜᴇᴛʜᴍɪɴᴀ ᴋᴀᴠɪꜱʜᴀɴ*"})
 } catch (e) {
 reply('*Error..! Your Url is Private. Please Public It*')
 l(e)
