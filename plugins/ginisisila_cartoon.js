@@ -12,7 +12,7 @@ const {
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson, fetchApi} = require('../lib/functions')
 
 cmd({
-    pattern: "ginisisilas",	
+    pattern: "ginisisilasx",	
     react: '🔎',
     category: "search",
     desc: "sinhalasub moive downloader",
@@ -56,7 +56,7 @@ l(e)
 
 
 cmd({
-    pattern: "ginisisila",	
+    pattern: "ginisisilax",	
     react: '📑',
     category: "search",
     desc: "sinhalasub moive downloader",
@@ -139,7 +139,7 @@ return await conn.sendButtonMessage(from, buttons, m, opts)
 
 
 cmd({
-    pattern: "ginidl",	
+    pattern: "ginidlx",	
     react: '📥',
     category: "search",
     desc: "sinhalasub moive downloader",
