@@ -44,6 +44,34 @@ async function GDriveDl(url) {
     }
 }
 
+
+cmd({
+    pattern: "gdrive",
+    alias: ["googledrive'"],
+    react: '📑',
+    desc: "Download googledrive files.",
+    category: "download",
+    use: '.gdrive <googledrive link>',
+    filename: __filename
+},
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+  if (!q) return await  reply('*Please give me googledrive url !!*')   
+let res = await GDriveDl(q)
+		let txt = `*[ Downloading file ]*\n\n`
+		txt += `*Name :* ${res.fileName}\n`
+		txt += `*Size :* ${res.fileSize}\n`
+		txt += `*Type :* ${res.mimetype}`	
+        await reply(txt)
+conn.sendMessage(config.JID, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: mek })
+} catch (e) {
+reply('*Error !!*')
+console.log(e)
+//reply(${e})
+}
+})
+
+
 cmd({
     pattern: "gjid",
     alias: ["nsgoogledrive","nsgdrive","nscyber_gd"],
@@ -65,10 +93,94 @@ reply(`\n⬇️  *CK CineMAX GDRIVE DOWNLOADER*  ⬇️
 *💈 File Size:* ${res.fileSize}
 *🕹️ File type:* ${res.mimetype}
 
-> 👨🏻‍💻 ᴍᴀᴅᴇ ʙʏ *ᴄʜᴇᴛʜᴍɪɴᴀ ᴋᴀᴠɪꜱʜᴀɴ*`)		
+*ᴛᴄ ᴛᴇᴀᴍ ᴍᴏᴠɪᴇᴅʟ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*`)		
 conn.sendMessage(jid, { document: { url: res.downloadUrl }, fileName: "🎬CK CineMAX🎬\n"+name, mimetype: res.mimetype , caption : "\n*🍀 "+name+"*\n\n> 👨🏻‍💻 *ᴄʜᴇᴛʜᴍɪɴᴀ ᴋᴀᴠɪꜱʜᴀɴ*"})
 } catch (e) {
 reply('*Error..! Your Url is Private. Please Public It*')
 l(e)
 }
 })
+
+
+cmd({
+    pattern: "moviekv",
+    react: "✔️",
+    desc: "Movie Searcher",
+    category: "movie",
+    use: '.activate_18+',
+    filename: __filename
+},
+async(conn, mek, m,{from, l, quoted, chat, body, isCmd, command, mentionByTag, db_pool, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isCreator ,isDev, isAdmins, reply}) => {
+try{
+if ( !isDev ) return reply('⚠️ ⚠️ *Contact owner to Active your number To Premium user*')
+if ( !m.quoted ) return reply('*ℹ .mkv jid & Halo (2024) TV Series E3*')
+if ( !q ) return 
+const data = q.split(" & ")[0] 
+const datas = q.split(" & ")[1] 
+      
+
+ await conn.sendMessage(data, { document : { url : m.quoted.msg  } ,caption: `\n${datas}\n\n> *🎬 VAJIRA-MD 🎬*`  ,mimetype: "video/mkv" , fileName: `🎬 MOVIE DOWNLOADER 🎬\n${datas}.mkv` } )
+		} catch (e) {
+reply('❗ Error' + e )
+l(e)
+}
+})					    
+
+
+
+cmd({
+    pattern: "jts",
+    react: "✔️",
+    alias: ["jidtvsm"],
+    desc: "Movie Searcher",
+    category: "extra",
+    use: '.activate_18+',
+    dontAddCommandList : true ,
+    filename: __filename
+},
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, mentionByTag, db_pool, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isCreator ,isDev, isAdmins, reply}) => {
+try{
+if ( !q ) return reply('Add a item')
+if ( !isDev ) return reply('⚠️ ⚠️ *Contact owner to Active your number To Premium user*')
+	const db_pool = new DBM({
+    db: config.DATABASE_URL
+})
+
+const pjid = await db_pool.get(senderNumber + "UPJID")
+
+	await conn.sendMessage(pjid, { quoted: mek } )
+		} catch (e) {
+reply(e)
+l(e)
+}
+})
+
+
+
+cmd({
+    pattern: "myjid",
+    react: "✔️",
+    alias: ["mygpjid"],
+    desc: "Movie Searcher",
+    category: "extra",
+    use: '.activate_18+',
+    dontAddCommandList : true ,
+    filename: __filename
+},
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, mentionByTag, db_pool, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isCreator ,isDev, isAdmins, reply}) => {
+try{
+ if ( !q ) return reply('Add a item')
+if ( !isDev ) return reply('⚠️ ⚠️ *Contact owner to Active your number To Premium user*')
+	const db_pool = new DBM({
+    db: config.DATABASE_URL
+})
+
+const ddll  = await db_pool.get(`${senderNumber}UPJID`)
+if ( q == ddll ) return reply('ℹ️ *Already Saved the jid on Database*')
+await db_pool.insert( senderNumber + "UPJID" , q ) 
+	return reply('✔️ *Successfully saved your Sending group Jid Adress*')
+		} catch (e) {
+await db_pool.insert( senderNumber + "UPJID"  , q ) 
+return reply('✔️ *Successfully saved your Sending group Jid Adress*')
+}
+})		
